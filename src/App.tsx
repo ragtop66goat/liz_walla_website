@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Navigation } from "./components/navigation/navigation";
+import { LeftTextRightImageSection } from "./components/sections/left-text-right-image-section";
+import { LeftVideoRightText } from "./components/sections/left-video-right-text";
+import { RightTextLeftImage } from "./components/sections/right-text-left-image";
+import {
+  firstTextSection,
+  secondTextSection,
+  videoSectionText,
+} from "./utils/text-utils";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navigation />
+      <div>
+        <LeftTextRightImageSection
+          mainBackgroundColor="var(--light-pink-color)"
+          text={firstTextSection}
+          imagePath="/images/flowers.jpg"
+          textColor="white"
+        />
+        <LeftVideoRightText text={videoSectionText} videoId="3xPkwNu2o8g"  textColor="var(--dark-purple-color)"/>
+        <RightTextLeftImage
+          mainBackgroundColor="var(--light-purple-color)"
+          text={secondTextSection}
+          imagePath="/images/collaboration.jpg"
+          textColor="white"
+        />
+      </div>
+    </>
   );
 }
 

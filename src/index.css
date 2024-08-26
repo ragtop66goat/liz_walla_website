@@ -11,3 +11,50 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Remove the dropdown triangle icon */
+.navbar .dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-item {
+  color: var(--red-color);
+}
+
+.dropdown-item:hover {
+  color: white;
+  background-color: var(--light-purple-color);
+}
+
+.nav-link {
+  color: var(--red-color);
+}
+
+.nav-link:hover {
+  color: var(--light-purple-color);
+}
+
+:root {
+  --blue-color: #1f306e;
+  --dark-purple-color: #553772;
+  --light-purple-color: #8f3b76;
+  --light-pink-color: #c7417b;
+  --red-color: #f5487f;
+}
+
+.diagonal-lines {
+  background-color: var(--light-purple-color);
+  background-image: repeating-linear-gradient(
+    45deg,
+    #d3d3d3 0,
+    var(--dark-purple-color) 0.25px,
+    transparent 1px,
+    transparent 30px
+  );
+  height: 100%;
+  width: 100%;
+  padding: 20;
+}
+
+
+
