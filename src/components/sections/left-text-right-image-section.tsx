@@ -1,9 +1,4 @@
-interface ILeftTextRightImageSection {
-  mainBackgroundColor: string;
-  text: string;
-  imagePath: string;
-  textColor: string;
-}
+import { ILeftTextRightImageSection } from "../../types";
 
 export const LeftTextRightImageSection: React.FC<ILeftTextRightImageSection> = (
   props: ILeftTextRightImageSection

@@ -1,10 +1,30 @@
-body {
+:root {
+  --blue-color: #1f306e;
+  --dark-purple-color: #553772;
+  --light-purple-color: #8f3b76;
+  --light-pink-color: #c7417b;
+  --red-color: #f5487f;
+  --faded-pink-color: rgba(149, 53, 118, 0.1);
+  --faded-purple-color: rgba(143, 59, 118, 0.4)
+}
+
+body, html, #root, .app-container {
   margin: 0;
+  height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content{
+  flex-grow: 1;
 }
 
 code {
@@ -34,13 +54,12 @@ code {
   color: var(--light-purple-color);
 }
 
-:root {
-  --blue-color: #1f306e;
-  --dark-purple-color: #553772;
-  --light-purple-color: #8f3b76;
-  --light-pink-color: #c7417b;
-  --red-color: #f5487f;
+.footer-link {
+  text-decoration: none;
+  color: white;
+  margin-bottom: 0.5rem;
 }
+
 
 .diagonal-lines {
   background-color: var(--light-purple-color);
