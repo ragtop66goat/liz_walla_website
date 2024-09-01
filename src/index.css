@@ -1,11 +1,8 @@
 :root {
-  --blue-color: #1f306e;
-  --dark-purple-color: #553772;
-  --light-purple-color: #8f3b76;
-  --light-pink-color: #c7417b;
-  --red-color: #f5487f;
-  --faded-pink-color: rgba(149, 53, 118, 0.1);
-  --faded-purple-color: rgba(143, 59, 118, 0.4)
+  --dark-purple-color: #272643;
+  --dark-teal-color: #2c698D;
+  --light-teal-color: #BAE8E8;
+  --faded-teal-color: #E3F6F5;
 }
 
 body, html, #root, .app-container {
@@ -38,31 +35,35 @@ code {
 }
 
 .dropdown-item {
-  color: var(--red-color);
+  color: var(--dark-purple-color);
 }
 
 .dropdown-item:hover {
   color: white;
-  background-color: var(--light-purple-color);
+  background-color: var(--dark-teal-color);
 }
 
 .nav-link {
-  color: var(--red-color);
+  color: var(--light-teal-color);
 }
 
 .nav-link:hover {
-  color: var(--light-purple-color);
+  color: white;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  color: #fff;
 }
 
 .footer-link {
   text-decoration: none;
-  color: white;
+  color: var(--dark-purple-color);
   margin-bottom: 0.5rem;
 }
 
 
 .diagonal-lines {
-  background-color: var(--light-purple-color);
+  background-color: var(--dark-purple-color);
   background-image: repeating-linear-gradient(
     45deg,
     #d3d3d3 0,

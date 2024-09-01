@@ -2,10 +2,10 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 export const Navigation = () => {
   return (
-    <Navbar expand="lg" style={{backgroundColor: "var(--faded-pink-color)"}}>
+    <Navbar expand="lg" style={{backgroundColor: "var(--dark-purple-color)"}}>
       <Container>
-        <Navbar.Brand style={{ color: "var(--red-color)" }} href="/">
-          Company Logo/Name
+        <Navbar.Brand style={{ color: "var(--light-teal-color)" }} href="/">
+          FRACTIONAL<br/>WERKS
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

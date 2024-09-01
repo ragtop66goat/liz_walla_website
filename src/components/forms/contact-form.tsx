@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Alert, Button, Form } from "react-bootstrap";
 import { contactFormSchema, IFormData, IFormDataErrors } from "../../types";
 import * as Yup from "yup";
+import { useAxios } from "../../hooks/useAxios";
 
 export const ContactForm = () => {
   const [errors, setErrors] = useState<IFormDataErrors>({});
@@ -10,6 +11,19 @@ export const ContactForm = () => {
     email: "",
     message: "",
   });
+  const{data, loading, error, apiCall:sendEmail} = useAxios({
+    url:"https://formsubmit.co/774cc67dac88d67231648fde006c0395",
+    method:"POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    }),
+})
 
   const handleChange = (e: { target: { name: string; value: string } }) => {
     const { name, value } = e.target;
@@ -23,7 +37,8 @@ export const ContactForm = () => {
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
-      await contactFormSchema.validate(formData, { abortEarly: false });
+      await contactFormSchema.validate(formData, { abortEarly: false })
+      sendEmail();
     } catch (validationErrors) {
       const newErrors: IFormDataErrors = {};
 
@@ -42,15 +57,17 @@ export const ContactForm = () => {
   return (
     <div className="d-flex justify-content-center align-items-center">
       <h3 className="m-5">Are you ready to start collaborating?<br/>Fill out the form and a representative will contact you.</h3>
+      {loading && <h3>Loading</h3>}
+      {error && <h3>{error}</h3>}
       <Form
         style={{
-          boxShadow: "0px 2px 4px rgba(149, 53, 118, 0.2)",
+          boxShadow: "0px 2px 4px rgba(44, 105, 141, 0.2)",
           padding: "4rem 8rem"
         }}
         className="m-5"
       >
         <Form.Group className="mb-3" controlId="name">
-          <Form.Label style={{ color: "var(--light-purple-color)" }}>
+          <Form.Label style={{ color: "var(--dark-purple-color)" }}>
             Name:
           </Form.Label>
           <Form.Control
@@ -63,7 +80,7 @@ export const ContactForm = () => {
           {errors.name && <Alert variant="danger">{errors.name}</Alert>}
         </Form.Group>
         <Form.Group className="mb-3" controlId="email">
-          <Form.Label style={{ color: "var(--light-purple-color)" }}>
+          <Form.Label style={{ color: "var(--dark-purple-color)" }}>
             Email address
           </Form.Label>
           <Form.Control
@@ -76,7 +93,7 @@ export const ContactForm = () => {
           {errors.email && <Alert variant="danger">{errors.email}</Alert>}
         </Form.Group>
         <Form.Group className="mb-3" controlId="massage">
-          <Form.Label style={{ color: "var(--light-purple-color)" }}>
+          <Form.Label style={{ color: "var(--dark-purple-color)" }}>
             Message
           </Form.Label>
           <Form.Control

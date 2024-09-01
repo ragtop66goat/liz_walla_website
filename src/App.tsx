@@ -24,10 +24,10 @@ function App() {
           element={
             <div>
               <LeftTextRightImageSection
-                mainBackgroundColor="var(--light-pink-color)"
+                mainBackgroundColor="var(--faded-teal-color)"
                 text={firstTextSection}
                 imagePath="/images/flowers.jpg"
-                textColor="white"
+                textColor="var(--dark-purple-color)"
               />
               <LeftVideoRightText
                 text={videoSectionText}
