@@ -11,7 +11,7 @@ export const ContactForm = () => {
     email: "",
     message: "",
   });
-  const{data, loading, error, apiCall:sendEmail} = useAxios({
+  const{loading, error, apiCall:sendEmail} = useAxios({
     url:"https://formsubmit.co/774cc67dac88d67231648fde006c0395",
     method:"POST",
     headers: {
