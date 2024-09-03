@@ -28,6 +28,7 @@ function App() {
                 text={firstTextSection}
                 imagePath="/images/flowers.jpg"
                 textColor="var(--dark-purple-color)"
+                altText="cherry-blossoms"
               />
               <LeftVideoRightText
                 text={videoSectionText}
@@ -39,6 +40,7 @@ function App() {
                 text={secondTextSection}
                 imagePath="/images/collaboration.jpg"
                 textColor="white"
+                altText="collaboration-meeting"
               />
             </div>
           }

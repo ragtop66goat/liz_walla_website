@@ -16,6 +16,7 @@ export interface IRightTextLeftImageProps {
   text: string;
   imagePath: string;
   textColor: string;
+  altText: string;
 }
 
 export interface ILeftTextRightImageSection {
@@ -23,6 +24,7 @@ export interface ILeftTextRightImageSection {
   text: string;
   imagePath: string;
   textColor: string;
+  altText: string;
 }
 
 export const contactFormSchema = Yup.object().shape({
