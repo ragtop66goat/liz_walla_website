@@ -1,16 +1,14 @@
-import { useState } from "react";
 import { Alert, Button, Form } from "react-bootstrap";
-import { contactFormSchema, IFormData, IFormDataErrors } from "../../types";
+import { contactFormSchema, IFormDataErrors } from "../../types";
 import * as Yup from "yup";
 import { useAxios } from "../../hooks/useAxios";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { errorCountState, formDataState, formErrorState } from "../../state/form-state";
 
 export const ContactForm = () => {
-  const [errors, setErrors] = useState<IFormDataErrors>({});
-  const [formData, setFormData] = useState<IFormData>({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [errors, setErrors] = useRecoilState(formErrorState);
+  const numOfErrors = useRecoilValue(errorCountState);
+  const [formData, setFormData] = useRecoilState(formDataState);
 
   const {
     loading,
@@ -73,6 +71,7 @@ export const ContactForm = () => {
           {error && <h3>{error}</h3>}
         </div>
         <div className="col-12 col-md-6">
+          {numOfErrors > 0 && <h2>{`${numOfErrors} error(s) present`}</h2>}
           <Form
             style={{
               boxShadow: "0px 2px 4px rgba(44, 105, 141, 0.2)",
